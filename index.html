@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style_covid_pro.css">
+    <title>Holy_Grail</title>
+</head>
+<body>
+    <!--Barra de navegacion encabezado -->
+    <header class="header">
+        <div class="header__box">
+            <div class="header__top">
+                <div class="header__branding">
+                    <img src="./CSS/logos/Buap-Logo-Vector.svg-.png" alt="Logo BUAP" class="buap-logo">
+                    <h1 class="buap-title">BUAP</h1>
+                </div>
+                <button class="nav-toggle" aria-label="Menú"></button>
+                </div>
+            <nav class="main-navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                    <li><a href="#">Sabías que</a></li>
+                    <li><a href="#">Covid</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!--Division lateral izquierda -->
+
+    <div class="main-wrapper">
+
+        <aside class="secondary-navbar" id="context-aside">
+        <div class="aside-content">
+            <img id="aside-image" src="./imagenes/foto_cv.jpeg" alt="Foto de Mars Sotelo" class="profile-pic-aside">
+            
+            <h2 id="aside-title">Mars Sotelo</h2>
+            <p id="aside-desc" class="aside-role">Físico / Desarrollador Web</p>
+        </div>
+    </aside>
+
+    <main id="dashboard-main" class="dashboard-main" role="main">
+        <button id="darkModeToggle" aria-label="Activar modo oscuro">🌓 Modo Oscuro</button>
+
+        <section id="inicio" class="hero-section-text-only">
+            <h1>Hola, soy Mars Sotelo</h1>
+            <p class="hero-bio">
+                Egresado de la Licenciatura en Física por la BUAP. Actualmente en proceso de Tesis. 
+                Me especializo en el análisis de datos, modelado matemático y dsarrollo Web.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="https://drive.google.com/file/d/143W1Bv1HMm3jqvNvfDC2DQeKWyLYsCfs/view?usp=sharing" target="_blank" class="btn-cv-primary">
+                    📄 Ver / Descargar CV
+                </a>
+                <a href="mailto:mars_sotelo@outlook.com" class="btn-cv-secondary">Contáctame</a>
+            </div>
+            
+            <div class="mini-cv-grid">
+                <div class="mini-item">
+                    <span class="label">Carrera:</span>
+                    <span class="value">Física (BUAP)</span>
+                </div>
+                <div class="mini-item">
+                    <span class="label">Estado:</span>
+                    <span class="value">Egresado / Tesista</span>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section id="experiencia" class="experience-section fade-in">
+                <h2 class="section-title-small">Experiencia Profesional</h2>
+                
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <h3>Investigador de Datos (Tesis)</h3>
+                        <span class="exp-date">Actualidad</span>
+                    </div>
+                    <p class="exp-subtitle">Modelo Predictivo F10.7 con NeuralProphet</p>
+                    <ul class="exp-list">
+                        <li>Pronóstico de series de tiempo climáticas usando <strong>Deep Learning (Python)</strong>.</li>
+                        <li>Análisis de 17 años de datos históricos de la NASA (OMNIWeb).</li>
+                        <li>Evaluación rigurosa (RMSE, MAE, R²) para validación de modelos.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <h3>Desarrollador Full Stack</h3>
+                        <span class="exp-date">2024 - 2025</span>
+                    </div>
+                    <p class="exp-subtitle">Proyecto: Fiestakids.com.mx</p>
+                    <ul class="exp-list">
+                        <li>Desarrollo de sitio web responsivo <strong>Mobile-First</strong> (HTML5, CSS3, JS).</li>
+                        <li>Gestión de infraestructura: DNS y despliegue en <strong>Hostinger</strong>.</li>
+                        <li style="margin-top: 10px; list-style: none;">
+                            <a href="https://fiestakids.com.mx" target="_blank" class="link-live">🌐 Ver sitio en vivo &rarr;</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <h3>Técnico de Laboratorio 3D</h3>
+                        <span class="exp-date">Servicio Social</span>
+                    </div>
+                    <p class="exp-subtitle">Manufactura Aditiva y Diseño</p>
+                    <ul class="exp-list">
+                        <li>Diseño y modelado de piezas 3D utilizando <strong>Blender</strong>.</li>
+                        <li>Operación de impresoras y slicing con <strong>Ultimaker Cura</strong>.</li>
+                        <li>Mantenimiento preventivo de equipos de impresión.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <h3>Analista de Datos Jr.</h3>
+                        <span class="exp-date">Prácticas</span>
+                    </div>
+                    <p class="exp-subtitle">Tablero de Control COVID-19</p>
+                    <ul class="exp-list">
+                        <li>Procesamiento ETL con <strong>Python y SQLite</strong>.</li>
+                        <li>Visualización: Dashboards en <strong>Tableau</strong> y reglas de asociación en <strong>Power BI</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card highlight-card">
+                    <div class="exp-header">
+                        <h3>Diplomado en Ciencia de Datos</h3>
+                        <span class="exp-date">BUAP | 2025</span>
+                    </div>
+                    <p class="exp-desc">Especialización de 120 horas en análisis, modelado y minería de datos.</p>
+                    <div style="margin-top: 10px;">
+                        <a href="https://drive.google.com/file/d/1ItYf4Xn7Dg2DYXg8FW3pd3sOKi7TJEtL/view?usp=sharing" target="_blank" style="color: #0056b3; text-decoration: underline; font-size: 0.9em;">
+                            📜 Ver Certificado Digital
+                        </a>
+                    </div>
+                </div>
+        </section>
+
+        <hr class="section-divider">
+
+
+
+
+
+
+        <hr class="section-divider">
+
+        <h2 class="project-title">Proyecto Destacado: Analisis COVID-19</h2>
+            <div class="card-container">
+
+
+
+
+        
+                <!-- Tarjeta 1 -->
+<div class="flip-card" data-modal="modal1">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>COVID-19</h3>
+            <p>¿Por qué fue tan peligrosa?</p>
+        </div>
+        <div class="flip-back">
+            <p>Haz clic para saber más</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta 2 -->
+<div class="flip-card" data-modal="modal2">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>¿Qué es un virus?</h3>
+            <p>Microscopios al poder</p>
+        </div>
+        <div class="flip-back">
+            <p>Haz clic para descubrirlo</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Tarjeta 3 -->
+<div class="flip-card" data-modal="modal3">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>Virus vs Bacterias</h3>
+            <p>El gran duelo invisible</p>
+        </div>
+        <div class="flip-back">
+            <p>¿Quién gana la batalla?</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Tarjeta 4 -->
+<div class="flip-card" data-modal="modal4">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>Cómo se transmite el virus...?</h3>
+            <p>El arte de Contagiar</p>
+        </div>
+        <div class="flip-back">
+            <p>¿Cual es el estilo mas letal...?</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Tarjeta 5 -->
+<div class="flip-card" data-modal="modal5">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>Prevención</h3>
+            <p>¿Por qué no sirven antibióticos?</p>
+        </div>
+        <div class="flip-back">
+            <p>Evita el contagio con ciencia</p>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta 6 -->
+<div class="flip-card" data-modal="modal6">
+    <div class="flip-inner">
+        <div class="flip-front">
+            <h3>Medidas principales</h3>
+            <p>¡Tips clave para protegerte!</p>
+        </div>
+        <div class="flip-back">
+            <p>Higiene, cubrebocas y más...</p>
+        </div>
+    </div>
+</div>
+
+        
+            <!-- MODALES -->
+            <div class="modal" id="modal1">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>¿Qué es la COVID-19 y por qué se consideró peligrosa?</h2>
+                    <p>
+                        <ul>
+                            <li>Coronavirus: Son virus que infectan a muchos animales y pueden causar infecciones respiratorias en humanos, desde leves hasta graves.
+                            </li>
+                            <li>Brotes anteriores: SARS-CoV en 2002 y MERS-CoV en 2012, ambos con origen zoonótico y alta letalidad.
+                            </li>
+                            <li>
+                            Nuevo virus: A fines de 2019, surgió un nuevo coronavirus en Wuhan, China, llamado SARS-CoV-2, causante de la enfermedad COVID-19.
+                            </li>
+                            <li>A fines de enero, el virus ya se había extendido por toda China.</li>
+                            <li> El 30 de enero, la OMS declaró emergencia de salud pública internacional.</li>
+                                
+                            <li>El 11 de febrero, se nombró oficialmente como SARS-CoV-2 al virus y COVID-19 a la enfermedad.</li>
+                                
+                            <li>El 11 de marzo, la OMS declaró la pandemia.</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        
+            <div class="modal" id="modal2">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>¿Qué es un virus?</h2>
+                    <p>Un virus es un parásito microscópico especializado que necesita invadir células vivas para multiplicarse, es un parásito intracelular obligatorio.</p>
+                    <ul> <strong>Cómo actúa un virus...?</strong>
+                    <li>Entra al cuerpo por diferentes vías (respiratoria, digestiva, piel, etc.).</li>
+                    <li>Se adhiere a una célula huésped específica usando proteínas que reconocen receptores celulares.</li>
+                    <li>Introduce su material genético y utiliza la maquinaria celular para producir copias de sí mismo.</li>
+                    <li>Se ensamblan nuevas partículas virales que pueden salir de la célula (a menudo dañándola o matándola) para infectar nuevas células.</li>
+                    </ul>
+                    <ul> Efectos en el organismo
+                    <li>Destruir células.</li>
+                    <li>Alterar su funcionamiento.</li>
+                    <li>Desencadenar respuestas inmunes perjudiciales.</li>
+                    <li>Algunas infecciones son leves o silenciosas, pero otras (como el VIH, ébola o rabia) pueden ser graves o mortales, por lo mismo no se propagan mucho</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="modal" id="modal3">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Diferencias entre virus y bacterias</h2>
+                    <ul>
+                        <li><strong>Estructura: </strong>Los<strong> virus</strong> están formados por una pequeña cantidad de material genético (ADN o ARN) encerrado en una cubierta de proteína llamada cápside. Algunos tienen además una envoltura lipídica adicional, pero carecen de organelos y maquinaria celular propia​. 
+                        En cambio, las <strong>bacterias</strong> son células vivas simples (procariotas): poseen una membrana plasmática, una pared celular, citoplasma con ribosomas y su propio ADN libre (no dentro de un núcleo)​.
+                        Esta diferencia significa que la <strong>bacteria</strong> realiza funciones vitales por sí misma, mientras que el <strong>virus</strong> es esencialmente “genoma empaquetado” que requiere invadir una célula ajena para mostrar actividad biológica</li>
+                        <li><strong>Tamaño:</strong>  las <strong>bacterias</strong> suelen ser entre 10 y 100 veces más grandes que un virus típico​, ambas son invisibles al ojo humano.
+                        </li>
+                        <li><strong>Reproducción:</strong> Las<strong> bacterias</strong> son organismos vivos capaces de reproducirse por sí mismas, mientras que los <strong>virus</strong> necesitan invadir una célula huésped para replicarse. Las <strong>bacterias</strong> se multiplican por división celular (típicamente por fisión binaria): una célula bacteriana crece y se divide en dos células hijas idénticas, y así sucesivamente.​</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="modal" id="modal4">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Cómo se transmite el virus...?</h2>
+                        <ul> <strong>Vía principal de contagio</strong>
+                            <li>El virus se transmite principalmente entre personas que están cerca (a distancia de conversación).</li>
+                            <li>Se propaga a través de gotículas y aerosoles que salen de la boca o nariz al toser, estornudar, hablar, cantar o respirar.</li>
+                        </ul>
+                        <ul> <strong>Formas de transmisión</strong>
+                        <li>Transmisión por aerosoles de corto alcance: Inhalación de partículas en el aire a corta distancia.</li>
+                        <li>Transmisión por gotículas:
+                            Contacto directo de partículas infectadas con ojos, nariz o boca.
+                            </li>
+                        <li>En espacios cerrados y mal ventilados, los aerosoles pueden quedar suspendidos en el aire por más tiempo y llegar más lejos.</li>
+                        <li> Superficies contaminadas
+                            El virus puede contagiarse al tocar superficies contaminadas y luego tocarse ojos, nariz o boca.</li>
+                        </ul>
+                    <p>Una persona puede contagiar a otras aunque no tenga síntomas, estos con conocidos como <strong>Asintomáticos</strong>, porque nunca desarrollan síntomas y <strong>Presintomáticos</strong> aún no tienen síntomas, pero los desarrollarán.</p>
+                </div>
+            </div>
+
+            <div class="modal" id="modal5">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Prevención y enfermedades bacterianas</h2>
+                    <p>Las enfermedades <strong>bacterianas y virales</strong> se tratan de manera muy diferente. La diferencia más práctica y crucial es que los antibióticos solo funcionan contra las <strong>bacterias</strong>, no contra los <strong>virus</strong>.​ 
+                        Los antibióticos son fármacos que matan a las <strong>bacterias</strong> (bactericidas) o frenan su crecimiento (bacteriostáticos), y han sido fundamentales para curar infecciones bacterianas comunes (como neumonías bacterianas, infecciones urinarias, faringitis por estreptococo, etc.). En cambio, estos medicamentos no tienen efecto sobre un <strong>virus;</strong>por ejemplo, tomar un antibiótico no ayudará en nada contra un resfriado o la gripe, que son causados por​ <strong>virus</strong>
+                        Usar antibióticos cuando no corresponden puede además ser perjudicial, ya que favorece la aparición de resistencia bacteriana (las <strong>bacterias</strong> evolucionan y se vuelven insensibles al antibiótico)​.</p>
+                        <p>Para las <strong>infecciones virales</strong> existen <strong>tratamientos antivirales</strong> específicos, solo se han desarrollado antivirales para un número reducido de <strong>virus;</strong> por ejemplo, para el VIH. los antivirales suelen interferir con la replicación del <strong>virus</strong> dentro de las células, ayudando al organismo a controlar la infección. Vacunas preventivas muy efectivas contra numerosas enfermedades virales (poliomielitis, sarampión, <strong>COVID-19</strong>, etc.), existen vacunas contra ciertas <strong>bacterias</strong> (por ejemplo, contra neumococo, tétanos o difteria)​</p>
+                </div>
+            </div>
+        
+            <div class="modal" id="modal6">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Entre las principales medidas destacan...</h2>
+                    <ul>
+                        <li><strong>Vacunación:</strong>Vacúnate en cuanto sea tu turno y sigue las indicaciones de las autoridades sanitarias locales.</li>
+                        <li><strong>Distanciamiento físico:</strong>Mantén al menos 1 metro de distancia de otras personas, aunque no tengan síntomas, evita aglomeraciones y el contacto físico directo.</li>
+                        <li><strong>Uso correcto de la mascarilla:</strong> Usa mascarilla en lugares cerrados o con poca ventilación, debe cubrir nariz, boca y mentón,lávate las manos antes y después de manipularla, si es de tela, lávate a diario; si es médica, descártala adecuadamente, no uses mascarillas con válvula.</li>
+                        <li><strong>Ventilación y espacios seguros:</strong>Evita lugares cerrados, concurridos y con contacto cercano (las 3 “C”), reúnete al aire libre siempre que sea posible, en interiores, abre ventanas para mejorar la ventilación.</li>
+                        <li><strong>Limpieza de superficies</strong> Limpia y desinfecta con frecuencia superficies de contacto común (picaportes, celulares, grifos).</li>
+                        <li><strong>Mantente informado</strong> Sigue fuentes confiables como la OMS o tu autoridad sanitaria local para actualizaciones.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            </div>
+
+        </main>
+        
+        
+        <!-- Aside informacion a la derecha -->
+        <aside class="right-aside">
+            <hr> <div class="developer-profile">
+                <h2>Desarrollador</h2>
+                <p>Proyecto realizado por <strong>Mario Alberto Tapia Sotelo</strong>.</p>
+                <p>
+                    Encuentra este y otros proyectos en mi repositorio:
+                    <br>
+                    <a href="https://github.com/MarsSotelo" target="_blank" rel="noopener" style="text-decoration: none; font-weight: bold; color: #333;">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="20" height="20" style="vertical-align: middle;"> 
+                        /MarsSotelo
+                    </a>
+                </p>
+            </div>
+            <h2>Bibliografia...</h2>
+            <p> Visita aqui la base de datos <a href="https://datos.covid-19.conacyt.mx/">Tablero Covid-19 México </a></p>
+
+            <p>Hu, B., Guo, H., Zhou, P. & Shi, Z.-L.
+                <a href="https://www.nature.com/articles/s41579-020-00459-7?utm_source=chatgpt.com">Characteristics of SARS‑CoV‑2 and COVID‑19.</a>Nature Reviews Microbiology 19, 141–154 (2021).</p>
+
+            <p>Ryan, K. J., Ray, C. G., & Sherris, J. C. (Eds.). (2004). <a href="https://www.ncbi.nlm.nih.gov/books/NBK8098/">Medical microbiology (4th ed.). Partícula viral (virión). NCBI Bookshelf.</a></p>
+
+            <p>Cámara Argentina de Especialidades Medicinales. (n.d.). CAEME. <a href="https://www.caeme.org.ar/virus-y-bacterias-que-son-y-en-que-se-diferencian/"> Virus y bacterias: qué son y en qué se diferencian.</a></p>
+
+            <p> <a href="https://www.who.int/news-room/questions-and-answers/item/coronavirus-disease-covid-19-how-is-it-transmitted"> World Health Organization.</a> (s.f.). Coronavirus disease (COVID-19): How is it transmitted? </p>
+
+            <p><a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public">Organización Mundial de la Salud.</a> (2022, 10 de mayo). Brote de enfermedad por coronavirus (COVID-19): orientaciones para el público.</p>
+        </aside>
+    </div>
+
+
+
+    
+            <div class="analysis-frame-container">
+    <div class='tableauPlaceholder' id='viz1766698127637' style='position: relative'>
+        <noscript>
+            <a href='#'>
+                <img alt='Tablero de Control COVID-19' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covidpro&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+            </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='covidpro&#47;Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covidpro&#47;Dashboard1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+        </object>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    var divElement = document.getElementById('viz1766698127637');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    
+    // Lógica para forzar la vista correcta según el tamaño
+    if (divElement.offsetWidth > 800) {
+        // MODO PC: Usamos la proporción panorámica (Cine)
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.60) + 'px';
+    } else {
+        // MODO MÓVIL:
+        // Le damos mucha altura (1700px) para obligar a que quepa todo el diseño vertical
+        // del modo teléfono sin cortarse.
+        vizElement.style.width = '100%';
+        vizElement.style.height = '1700px'; 
+    }
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+    
+
+    <!--Pie de Pagina-->
+    <footer role="contentinfo">
+        Mars Sotelo - Copyright 2026
+    </footer>
+    <script src="./JS/covid_pro.js"></script>
+</body>
+</html>
+
+
+

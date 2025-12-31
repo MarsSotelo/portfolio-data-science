@@ -1,0 +1,1256 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #ededed;
+}
+
+div, body, header, nav, ul, footer {
+    box-sizing: border-box;
+}
+
+.main-wrapper, header, footer {
+    width: 100%;
+}
+
+h1, h2, h3, h4 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+/* ======== HEADER =========*/
+    /*header fijo arriba*/
+
+.header {
+    background-color: #003B5C;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header__box {
+    width: 100%;
+    background-image: linear-gradient(270deg, #003b5c, #00b5e2, #003b5c);
+    background-size: 600% 600%;
+    animation: gradientFlow 7.5s ease infinite;
+    color: #fff;
+    padding: 2px 20px;
+}
+
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header__box-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ededed;
+    margin: 1px 0;
+}
+
+.nav-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ededed;
+    cursor: pointer;
+    display: block;   /*Visible en Movil*/
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+/* NAVIGATION */
+
+.main-navbar ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 1px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-navbar a {
+    color: #fff;
+    padding: 6px 9px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.nav-open .main-navbar ul {
+    display: flex;
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+    .header__top {
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: none  !important;
+    }
+
+    .main-navbar ul {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 20px;
+        margin: 0;
+    }
+}
+
+
+/*Barra de amburguessa editada al cerrar y al abrir*/
+
+.nav-toggle.active::before {
+    content: "✖"; /* símbolo de 'X' */
+    font-size: 24px;
+}
+.nav-toggle::before {
+    content: "☰"; /* hamburguesa por defecto */
+    font-size: 24px;
+}
+
+
+/* Logo en el header */
+.header__branding {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buap-logo {
+    height: 55px;
+    width: auto;
+}
+
+.buap-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.buap-logo:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+
+/* ========= Main Section =========== */
+
+.main-wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+aside, main {
+    padding: 10px 20px;
+    flex-basis: 0;
+    background-color: #fff;
+}
+
+main {
+    min-width: 300px;
+    flex-grow: 2;
+}
+
+.main-wrapper aside {
+    flex-grow: 1;
+}
+
+.secondary-navbar {
+    min-width: 11rem;
+    text-align: center;
+}
+
+.secondary-navbar ul {
+    padding: 0;
+}
+
+.secondary-navbar li {
+    list-style: none;
+}
+
+.secondary-navbar a {
+    color: #48e;
+    display: inline-block;
+    padding: 6px 10px;
+} 
+
+#right-aside  {
+    min-width: 10rem;
+    display:none
+}
+
+
+
+/* ===========================
+apartado profesioal del main
+==============================*/
+/* === Grid Base === */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* === Tarjetas Flip === */
+.flip-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 220px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #00B5E2, #003B5C);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 59, 92, 0.3);
+}
+
+.flip-front h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.flip-front p,
+.flip-back p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    background: #003B5C;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+
+/* === MODALES === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 59, 92, 0.8);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+}
+
+/*==== blur cristales en las tarjetas ===*/
+
+.modal-content {
+    backdrop-filter: blur(10px);
+    background: #00b5e2ed; /* para modo claro */
+    color: #121212;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00B5E2;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+
+.modal-content h2 {
+    color: #003B5C;
+    margin-top: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #003B5C;
+    cursor: pointer;
+}
+
+
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === DARK MODE === */
+
+/*===============*/
+
+body.dark-mode #dashboard-main {
+    background-image: linear-gradient(270deg, #003b5c, #00b5e2, #003b5c);
+    background-size: 600% 600%;
+    animation: gradientFlow 7.5s ease infinite;
+}
+
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/*================*/
+
+body.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
+
+body.dark-mode .header,
+body.dark-mode footer {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .flip-front,
+body.dark-mode .flip-back {
+    background: #1a1a1a;
+    color: #00FFC6;
+}
+
+#darkModeToggle {
+    padding: 10px 20px;
+    background: #003B5C;
+    color: #ededed;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    transition: background 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background: #00B5E2;
+}
+
+
+/*=========== Aside izquierdo =================*/
+/* =====================================
+   #context-aside → FIRST MOBILE STYLE
+===================================== */
+
+/* POR DEFECTO: Oculto en mobile */
+#context-aside {
+    display: none;
+}
+
+/* MOBILE: visible cuando está en sección tarjetas */
+@media (max-width: 767px) {
+    #context-aside.show-mobile {
+        display: flex;
+        position: fixed;
+        top: 60px;
+        left: 10px;
+        right: 10px;
+        background: transparent;
+        z-index: 99;
+        padding: 0px;
+        border-radius: 0px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        max-width: 95%;
+        margin: 0;
+    }
+
+    #context-aside.show-mobile img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    #context-aside.show-mobile h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    body.dark-mode #context-aside.show-mobile {
+        background: transparent;
+    }
+}
+
+/* DESKTOP: sticky y alineado vertical */
+@media (min-width: 768px) {
+    #context-aside {
+        display: flex;
+        position: sticky;
+        top: 60px;
+        align-self: start;
+        flex-direction: column;
+        padding: 20px;
+        background: transparent;
+        border-right: 2px solid #e0e0e0;
+        gap: 15px;
+        text-align: center;
+    }
+
+    #context-aside img {
+        width: 100%;
+        max-width: auto;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    #context-aside h2 {
+        font-size: 1.2rem;
+        color: #003B5C;
+    }
+
+    body.dark-mode #context-aside {
+        background-color: #1c1c1c;
+        border-color: #333;
+        color: #eee;
+    }
+
+    body.dark-mode #context-aside h2 {
+        color: #eee;
+    }
+}
+
+
+
+
+
+/* ----------- Animación slide -------------- */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Estilo aplicado dinámicamente */
+.aside-image-animate {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+/* Animación: Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.aside-anim-fade {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Animación: Zoom In */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+.aside-anim-zoom {
+    animation: zoomIn 0.5s ease forwards;
+}
+
+/* Animación: Bounce In */
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+.aside-anim-bounce {
+    animation: bounceIn 0.6s ease forwards;
+}
+
+/* Animación: Flip In */
+@keyframes flipIn {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0deg); opacity: 1; }
+}
+.aside-anim-flip {
+    animation: flipIn 0.6s ease forwards;
+}
+
+
+
+/* ========= Aside derecho fijo ============= */
+
+.right-aside {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+}
+
+
+/* Estilo claro por defecto */
+.right-aside {
+    background-color: transparent;
+    color: #121212;
+    padding: 20px;
+    border-left: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Estilo modo oscuro */
+body.dark-mode .right-aside {
+    background-color: #1e1e1e;
+    color: #eee;
+    border-color: #333;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+
+
+/* =========================================
+   SECCIÓN DESARROLLADOR (Específico)
+   ========================================= */
+
+
+.developer-profile h2 {
+    font-size: 1.1rem; /* Un poco más pequeño que el título principal */
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Destacar tu nombre */
+.developer-profile strong {
+    color: #007bff; /* Un toque de color (azul estándar) */
+}
+
+/* 3. El botón de GitHub */
+/* Nota: Esto funcionará mejor si borras el style="..." que está dentro del HTML */
+.developer-profile a {
+    display: inline-flex;       /* Alinea icono y texto perfectamente */
+    align-items: center;
+    gap: 8px;                   /* Espacio entre logo y texto */
+    margin-top: 8px;
+    padding: 8px 16px;          /* Relleno para que parezca botón */
+    background-color: #f1f3f5;  /* Fondo gris muy suave */
+    border: 1px solid #e1e4e8;  /* Borde sutil */
+    border-radius: 6px;         /* Bordes redondeados */
+    color: #24292e !important;  /* Color texto GitHub (forzamos sobre inline) */
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.developer-profile a:hover {
+    background-color: #fff;
+    border-color: #007bff;
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+/* =========================================
+   AJUSTES MODO OSCURO (Para esta sección)
+   ========================================= */
+
+body.dark-mode .right-aside hr {
+    border-color: #333;
+}
+
+body.dark-mode .developer-profile h2 {
+    color: #ccc;
+}
+
+body.dark-mode .developer-profile strong {
+    color: #61dafb; /* Azul neón suave en modo oscuro */
+}
+
+body.dark-mode .developer-profile a {
+    background-color: #2d333b; /* Fondo oscuro GitHub */
+    border-color: #444;
+    color: #fff !important;
+}
+
+body.dark-mode .developer-profile a:hover {
+    border-color: #61dafb;
+    background-color: #222;
+}
+
+/* Invertir el logo de GitHub para que sea blanco en modo oscuro */
+body.dark-mode .developer-profile a img {
+    filter: invert(1);
+}
+
+
+
+/* ============ footer ================= */
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #f00; 
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media screen and (min-width: 480px) {
+    .main-wrapper {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 800px){
+    #right-aside {
+    display:block;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS DEL DASHBOARD (CENTRADO)
+   ========================================= */
+
+.analysis-frame-container {
+    /* 1. ANCHO: Le damos 95% para que no toque los bordes */
+    width: 73%;
+    
+    /* 2. LÍMITE: Para que en pantallas gigantes no se vea eterno */
+    max-width: 1200px; 
+    
+    /* 3. CENTRADO: 'auto' a la izquierda y derecha lo pone al centro */
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: auto;  
+    margin-right: auto;
+    
+    /* Diseño del marco */
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.tableauPlaceholder {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Modo Oscuro */
+body.dark-mode .analysis-frame-container {
+    border-color: #333;
+    background-color: #1e1e1e; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS NUEVOS: SECCIÓN CV / PERFIL
+   ========================================= */
+
+/* Animación de entrada suave */
+.hero-section, .cv-summary {
+    animation: fadeIn 0.8s ease-in;
+}
+
+/* --- Héroe (Foto y Bio) --- */
+.hero-section {
+    padding: 60px 20px 40px;
+    max-width: 1000px; /* Un poco más ancho para que quepan los dos lados */
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-in;
+}
+
+/* Contenedor flexible para poner imagen y texto lado a lado */
+.hero-content-flex {
+    display: flex;
+    align-items: center; /* Centrado verticalmente */
+    justify-content: center;
+    gap: 50px; /* Espacio entre imagen y texto */
+}
+
+/* Estilo de la imagen lateral */
+.profile-pic-side {
+    width: 200px; /* Un poco más grande para equilibrar */
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #00B5E2; /* Azul claro BUAP */
+    box-shadow: 0 10px 25px rgba(0, 59, 92, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-pic-side:hover {
+    transform: scale(1.05) rotate(-3deg); /* Un pequeño efecto al pasar el mouse */
+}
+
+/* Bloque de texto a la derecha */
+.hero-text-block {
+    text-align: left; /* Texto alineado a la izquierda */
+    max-width: 600px;
+}
+
+.hero-text-block h1 {
+    color: #003B5C;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hero-text-block h2 {
+    color: #00B5E2;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-text-block p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Botones alineados a la izquierda */
+.hero-buttons-left {
+    display: flex;
+    justify-content: flex-start; /* Alineación izquierda */
+    gap: 15px;
+}
+
+
+
+
+/* --- Botones del CV --- */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-cv-primary, .btn-cv-secondary {
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-cv-primary {
+    background-color: #003B5C;
+    color: white;
+    border: 2px solid #003B5C;
+}
+
+.btn-cv-secondary {
+    background-color: transparent;
+    color: #003B5C;
+    border: 2px solid #003B5C;
+}
+
+.btn-cv-primary:hover, .btn-cv-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 59, 92, 0.2);
+}
+
+.btn-cv-secondary:hover {
+    background-color: #003B5C;
+    color: white;
+}
+
+
+
+/* =========================================
+   RESPONSIVE: PARA CELULARES
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .hero-content-flex {
+        flex-direction: column; /* Apilar verticalmente en móviles */
+        text-align: center; /* Volver a centrar el texto */
+        gap: 30px;
+    }
+
+    .hero-text-block {
+        text-align: center; /* Asegurar centrado en móvil */
+    }
+
+    .profile-pic-side {
+        width: 160px; /* Imagen más pequeña en móvil */
+        height: 160px;
+    }
+
+    .hero-buttons-left {
+        justify-content: center; /* Centrar botones en móvil */
+    }
+    
+    .hero-text-block h1 {
+        font-size: 2rem;
+    }
+}
+
+/* --- AJUSTES MODO OSCURO (Actualización para el nuevo layout) --- */
+body.dark-mode .hero-text-block h1 {
+    color: #ededed;
+}
+body.dark-mode .hero-text-block p {
+    color: #bbb;
+}
+
+
+
+
+/* --- Tarjeta de Resumen Académico --- */
+.cv-summary {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.cv-card {
+    background: rgba(0, 181, 226, 0.1); /* Fondo azul muy tenue */
+    padding: 20px 40px;
+    border-radius: 10px;
+    border-left: 5px solid #003B5C;
+    text-align: center;
+}
+
+.cv-card h3 {
+    margin: 0 0 10px 0;
+    color: #003B5C;
+    font-size: 1.1rem;
+}
+
+.cv-card .university {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.cv-card .degree {
+    color: #00B5E2;
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-weight: 800;
+}
+
+.cv-card .status span {
+    background-color: #003B5C;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Separador */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 40px 0 20px 0;
+}
+
+.project-title {
+    text-align: center;
+    color: #003B5C;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* --- AJUSTES MODO OSCURO (Dark Mode) --- */
+body.dark-mode .hero-content h1,
+body.dark-mode .cv-card h3,
+body.dark-mode .project-title,
+body.dark-mode .cv-card .university,
+body.dark-mode .cv-card .status {
+    color: #ededed;
+}
+
+body.dark-mode .hero-content p {
+    color: #bbb;
+}
+
+body.dark-mode .btn-cv-secondary {
+    border-color: #ededed;
+    color: #ededed;
+}
+
+body.dark-mode .btn-cv-secondary:hover {
+    background-color: #ededed;
+    color: #121212;
+}
+
+body.dark-mode .cv-card {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+
+
+
+/* =========================================
+   ESTILOS PERFIL LATERAL Y HERO
+   ========================================= */
+
+/* FOTO DE PERFIL (En el aside) */
+.profile-pic-aside {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%; /* Círculo perfecto */
+    border: 4px solid #00B5E2;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 59, 92, 0.2);
+    transition: all 0.3s ease; /* Transición suave para todo */
+}
+
+/* ROL / DESCRIPCIÓN CORTA */
+.aside-role {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 5px;
+    font-weight: 600;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+/* HERO CENTRAL (Solo texto) */
+.hero-section-text-only {
+    text-align: center;
+    padding: 30px 20px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.hero-section-text-only h1 {
+    font-size: 2.5rem;
+    color: #003B5C;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.hero-bio {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+/* GRID DE DATOS ACADÉMICOS */
+.mini-cv-grid {
+    display: inline-flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: rgba(0, 181, 226, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 59, 92, 0.1);
+}
+
+.mini-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.mini-item .value {
+    font-weight: bold;
+    color: #003B5C;
+    font-size: 1.1rem;
+}
+
+/* MODO OSCURO */
+body.dark-mode .aside-role,
+body.dark-mode .mini-item .label,
+body.dark-mode .hero-bio { color: #bbb; }
+body.dark-mode .mini-item .value,
+body.dark-mode .hero-section-text-only h1 { color: #fff; }
+body.dark-mode .mini-cv-grid { background: rgba(255, 255, 255, 0.05); border-color: #333; }
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS PARA LA SECCIÓN DE EXPERIENCIA
+   ========================================= */
+
+/* Contenedor principal de la sección */
+.experience-section {
+    max-width: 800px;
+    margin: 40px auto; /* Centrado */
+    padding: 0 20px;
+}
+
+/* Título de la sección (Más pequeño que los principales) */
+.section-title-small {
+    text-align: center;
+    color: #003B5C;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #00B5E2;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 5px;
+}
+
+/* Tarjeta de Experiencia base */
+.exp-card {
+    background: #f9f9f9;
+    border-left: 5px solid #00B5E2; /* Borde azul claro a la izquierda */
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-3px); /* Levanta un poco al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Cabecera de la tarjeta (Título y Fecha) */
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.exp-header h3 {
+    margin: 0;
+    color: #003B5C;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+/* Píldora de la fecha */
+.exp-date {
+    background: #003B5C;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Subtítulo del puesto/proyecto */
+.exp-subtitle {
+    color: #00B5E2;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    font-size: 1rem;
+}
+
+/* Lista de tareas */
+.exp-list {
+    margin: 0;
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.exp-list li {
+    margin-bottom: 5px;
+}
+
+/* Enlace "Ver sitio en vivo" */
+.link-live {
+    color: #00B5E2;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.link-live:hover {
+    transform: translateX(5px); /* Se mueve a la derecha al pasar el mouse */
+    text-decoration: underline;
+}
+
+/* Tarjeta Destacada (Diplomado) */
+.highlight-card {
+    background: linear-gradient(to right, rgba(0, 181, 226, 0.1), transparent);
+    border-left-color: #003B5C; /* Borde oscuro para distinguir */
+}
+
+.exp-desc {
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Línea divisoria */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 40px 0;
+}
+
+/* Animación de entrada (Fade In) */
+.fade-in {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0; /* Inicia invisible hasta que la animación corra */
+    animation-delay: 0.2s; /* Pequeña pausa */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   MODO OSCURO (DARK MODE) PARA EXPERIENCIA
+   ========================================= */
+body.dark-mode .exp-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-left: 5px solid #00B5E2; /* Mantiene el borde de color */
+    box-shadow: none;
+}
+
+body.dark-mode .section-title-small,
+body.dark-mode .exp-header h3 {
+    color: #ededed;
+}
+
+body.dark-mode .exp-list,
+body.dark-mode .exp-desc {
+    color: #bbb;
+}
+
+body.dark-mode .highlight-card {
+    background: linear-gradient(to right, rgba(0, 181, 226, 0.15), transparent);
+    border-left-color: #ededed;
+}
