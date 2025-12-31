@@ -75,87 +75,64 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    /* =========================================
-       3. ASIDE INTELIGENTE (PERFIL <-> TARJETAS)
-       Esta es la parte actualizada
-       ========================================= */
-    
-    const asideImg = document.getElementById("aside-image");
-    const asideTitle = document.getElementById("aside-title");
-    const asideDesc = document.getElementById("aside-desc");
-    const cardContainer = document.querySelector(".card-container");
+   /* =========================================
+   3. ASIDE INTELIGENTE (PERFIL <-> TARJETAS)
+   ========================================= */
 
-    // A) Tu Perfil (Lo que se ve por defecto)
-    const defaultProfile = {
-        img: "../imagenes/foto_cv.jpeg", 
-        title: "Mars Sotelo",
-        desc: "Físico / Desarrollador Web"
-    };
+const asideImg = document.getElementById("aside-image");
+const asideTitle = document.getElementById("aside-title");
+const asideDesc = document.getElementById("aside-desc");
+const cards = document.querySelectorAll(".flip-card"); 
 
-    // B) Datos de las Tarjetas (Lo que se ve al pasar el mouse)
-    const contextMap = {
-        modal1: { title: "COVID-19", img: "imagenes/que_es_un_virus.avif" },
-        modal2: { title: "¿Qué es un virus?", img: "imagenes/interrogacion_covid.jpg" },
-        modal3: { title: "Virus vs Bacterias", img: "imagenes/Difference-between-Virus-and-bacteria.jpg" },
-        modal4: { title: "Cómo se transmite el virus...?", img: "imagenes/medidas_covid_tos.webp" },
-        modal5: { title: "Prevención", img: "imagenes/preventions_covid.jfif" },
-        modal6: { title: "Medidas principales", img: "imagenes/prevenir_coronavirus.jpg" }
-    };
+// A) Tu Perfil (Datos por defecto)
+const defaultProfile = {
+    img: "imagenes/foto_cv.jpeg", // RUTA CORREGIDA (sin ../)
+    title: "Mars Sotelo",
+    desc: "Físico / Desarrollador Web"
+};
 
-    // Función para cambiar la imagen y texto suavemente
-    function updateAside(data, isProfile) {
-        if (!asideImg || !asideTitle) return;
+// B) Datos de las Tarjetas
+const contextMap = {
+    modal1: { title: "COVID-19", img: "imagenes/que_es_un_virus.avif" },
+    modal2: { title: "¿Qué es un virus?", img: "imagenes/interrogacion_covid.jpg" },
+    modal3: { title: "Virus vs Bacterias", img: "imagenes/Difference-between-Virus-and-bacteria.jpg" },
+    modal4: { title: "Cómo se transmite...?", img: "imagenes/medidas_covid_tos.webp" },
+    modal5: { title: "Prevención", img: "imagenes/preventions_covid.jfif" },
+    modal6: { title: "Medidas principales", img: "imagenes/prevenir_coronavirus.jpg" }
+};
 
-        // 1. Desvanecer
-        asideImg.style.opacity = "0";
-        if(asideDesc) asideDesc.style.opacity = "0";
+// C) Lógica de Eventos
+cards.forEach(card => {
+    // 1. Entrar a la tarjeta -> Muestra info del Virus
+    card.addEventListener("mouseenter", () => {
+        const modalId = card.getAttribute("data-modal");
+        const data = contextMap[modalId];
 
-        setTimeout(() => {
-            // 2. Cambiar contenido
+        if (data) {
             asideImg.src = data.img;
             asideTitle.innerText = data.title;
             
-            // 3. Ajustar estilos (Redondo para ti, Cuadrado para virus)
-            if (isProfile) {
-                asideImg.classList.add("profile-pic-aside");
-                asideImg.style.borderRadius = "50%"; 
-                asideImg.style.borderColor = "#00B5E2";
-                
-                if(asideDesc) {
-                    asideDesc.innerText = data.desc;
-                    asideDesc.style.display = "block";
-                    setTimeout(() => asideDesc.style.opacity = "1", 50);
-                }
-            } else {
-                asideImg.classList.remove("profile-pic-aside");
-                asideImg.style.borderRadius = "10px";
-                asideImg.style.borderColor = "transparent";
-                
-                if(asideDesc) asideDesc.style.display = "none";
-            }
-
-            // 4. Aparecer de nuevo
-            asideImg.style.opacity = "1";
-        }, 200);
-    }
-
-    // EVENTO: Entrar a tarjeta (Muestra Virus)
-    document.querySelectorAll(".flip-card").forEach(card => {
-        card.addEventListener("mouseenter", () => {
-            const modalId = card.getAttribute("data-modal");
-            const context = contextMap[modalId];
-            if (context) {
-                updateAside(context, false);
-            }
-        });
+            // Ocultamos descripción y ajustamos estilo para imagen de virus
+            if(asideDesc) asideDesc.style.display = "none";
+            asideImg.style.borderRadius = "10px";
+            asideImg.style.border = "none";
+        }
     });
 
-    // EVENTO: Salir de las tarjetas (Vuelve a Ti)
-    if (cardContainer) {
-        cardContainer.addEventListener("mouseleave", () => {
-            updateAside(defaultProfile, true);
-        });
-    }
+    // 2. Salir de la tarjeta -> Vuelve a Tu Perfil
+    card.addEventListener("mouseleave", () => {
+        asideImg.src = defaultProfile.img;
+        asideTitle.innerText = defaultProfile.title;
+        
+        // Restauramos descripción y estilo de perfil (redondo)
+        if(asideDesc) {
+            asideDesc.innerText = defaultProfile.desc;
+            asideDesc.style.display = "block";
+        }
+        asideImg.style.borderRadius = "50%";
+        asideImg.style.border = "4px solid #00B5E2";
+    });
+});
 
     /* =========================================
        4. OBSERVADOR PARA MÓVIL
@@ -197,4 +174,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         // Pausar la animación inicialmente en el CSS o JS si usas observer
         // Pero con el CSS que te pasé arriba funcionará automático al cargar la página.
+
     }
